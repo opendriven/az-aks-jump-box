@@ -21,3 +21,9 @@ sudo curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/maste
 
 # Install Azure CLI (latest)
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+# Install OpenTofu (latest via deb method)
+curl --proto '=https' --tlsv1.2 -fsSL https://get.opentofu.org/install-opentofu.sh -o install-opentofu.sh
+chmod +x install-opentofu.sh
+./install-opentofu.sh --install-method deb
+rm -f install-opentofu.sh
