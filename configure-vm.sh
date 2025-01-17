@@ -27,3 +27,15 @@ curl --proto '=https' --tlsv1.2 -fsSL https://get.opentofu.org/install-opentofu.
 chmod +x install-opentofu.sh
 ./install-opentofu.sh --install-method deb
 rm -f install-opentofu.sh
+
+# Install jq
+sudo apt  install jq -y
+
+# Install net-tools
+sudo apt install net-tools -y
+
+#Install Argo CD CLI
+ARGOCD_VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+curl -sSL -o /tmp/argocd-${ARGOCD_VERSION} https://github.com/argoproj/argo-cd/releases/download/${ARGOCD_VERSION}/argocd-linux-amd64
+chmod +x /tmp/argocd-${ARGOCD_VERSION}
+sudo mv /tmp/argocd-${ARGOCD_VERSION} /usr/local/bin/argocd
